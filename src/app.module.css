@@ -1,0 +1,107 @@
+body {
+    background: rgb(5,0,88);
+    background: radial-gradient(circle, rgba(5,0,88,1) 0%, rgba(0,0,0,1) 100%);
+}
+
+.app {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.appForm {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.case {
+    color: rgb(210, 210, 210);
+    cursor: pointer;
+}
+
+.changeCase {
+    margin: 0px auto;
+    color: rgb(210, 210, 210);
+    font-size: 14px;
+}
+
+.inputCase {
+    padding: 10px 50px;
+    background: none;
+    border: 1px solid gray;
+    border-radius: 5px;
+    font-size: 16px;
+    color: white;
+}
+
+.buttons { 
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+}
+
+.button {
+    cursor: pointer;
+    padding: 8px 15px;
+    border-radius: 5px;
+    background-color: hwb(216 46% 1%);
+    border: 0px;
+}
+
+.buttonDelete {
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: rgb(252, 71, 71);
+    border: 0px;
+    height: 30px;
+    width: 100px;
+}
+
+.caseAndButtonDelete {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.loading {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 25px;
+    height: 25px;
+    border: 5px solid rgb(248, 248, 248);
+    border-radius: 50%;
+    border-left-color: transparent;
+    animation: loader .7s infinite;
+}
+
+@keyframes loader {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.buttonRequest {
+    cursor: pointer;
+    padding: 15px;
+}
+
+.red {
+    color: rgb(99, 249, 111);
+}
+
+.buttonSort {
+    cursor: pointer;
+    padding: 8px 15px;
+    border-radius: 5px;
+    background-color: hwb(216 46% 1%);
+    border: 0px;
+    margin-top: 15px;
+}
