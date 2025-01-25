@@ -7,6 +7,7 @@ function App() {
   const [nameCase, setNameCase] = useState('');
   const [idForChange, setIdForChange] = useState(null);
   const [isSort, setIsSort] = useState(false);
+  const [refresh, setRefresh] = useState(false);
 
   useEffect(() => {
     setLoading(true);
@@ -20,9 +21,9 @@ function App() {
           }
           })
         .finally(() => setLoading(false));
-  }, [isSort])
+  }, [isSort, refresh])
 
-  const requestAddPhone = () => {
+  const requestAddCase = () => {
 
     if (nameCase) {
       fetch('http://localhost:3000/products', {
@@ -37,13 +38,13 @@ function App() {
       }
     }
 
-  const requestDeletePhone = (productId) => {
+  const requestDeleteCase = (productId) => {
 
       fetch(`http://localhost:3000/products/${productId}`, {
         method: 'DELETE',
       })
       .then(rawResponse => rawResponse.json())
-      .finally();
+      .finally(() => setRefresh(refresh => !refresh));
   }
 
   const requestChangePhone = () => {
@@ -59,7 +60,11 @@ function App() {
       .finally();
   }
 
-  console.log(isSort)
+  const onCancelTheReboot = (event) => {
+    event.preventDefault();
+    setRefresh(refresh => !refresh)
+  }
+
   return (
     <div className={styles.app}>
       {loading ? <div className={styles.loading}></div> : caseArr.map((product) => (
@@ -72,13 +77,13 @@ function App() {
             </h1>
             <button 
                 className={styles.buttonDelete} 
-                onClick={() => requestDeletePhone(product.id)}
+                onClick={() => requestDeleteCase(product.id)}
             >
             Удалить
             </button>
         </div>
       ))}
-      <form className={styles.appForm}>
+      <form onSubmit={(e) => onCancelTheReboot(e)} className={styles.appForm}>
         <input
             className={styles.inputCase} 
             type="text" 
@@ -89,7 +94,7 @@ function App() {
         <div className={styles.buttons}>
             <button
                 className={styles.button} 
-                onClick={requestAddPhone}
+                onClick={requestAddCase}
               >
                 Добавить
             </button>
