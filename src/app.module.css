@@ -93,15 +93,6 @@ body {
     padding: 15px;
 }
 
-.red {
+.green {
     color: rgb(99, 249, 111);
-}
-
-.buttonSort {
-    cursor: pointer;
-    padding: 8px 15px;
-    border-radius: 5px;
-    background-color: hwb(216 46% 1%);
-    border: 0px;
-    margin-top: 15px;
 }
